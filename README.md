@@ -79,6 +79,11 @@ TUI 里 `k` 关停需要两段确认：先选实例，再确认；只对认得�
 - 依赖 vLLM 的 `/metrics`（Prometheus 文本格式）。非 vLLM 的服务不会被误认成实例。
 - 在 Linux + vLLM v1（实测 0.32.0）上开发，其它版本/平台未验证。
 
+## 致谢
+
+vllmtop 是在 DeepSeek（DS）模型与 DSH（DeepSeek Harness）的协作下写出来的：
+从界面形态的讨论、实现、验证，到文档和发布，大部分工作由它们完成。
+
 ## License
 
 MIT
