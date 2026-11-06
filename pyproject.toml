@@ -1,0 +1,36 @@
+[project]
+name = "vllmtop"
+version = "0.1.0"
+description = "nvitop 风格的 vLLM 实例看板：本机所有实例的吞吐、cache 命中率、KV cache、GPU 占用，配置按需查看"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "AusarPu", email = "131422408+AusarPu@users.noreply.github.com" }]
+keywords = ["vllm", "monitoring", "tui", "nvitop", "llm", "gpu"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Monitoring",
+]
+dependencies = [
+    "rich>=13.7",
+    "textual>=8.0",
+]
+
+[project.scripts]
+vllmtop = "vllmtop:main"
+
+[project.urls]
+Homepage = "https://github.com/AusarPu/vllmtop"
+Issues = "https://github.com/AusarPu/vllmtop/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["vllmtop"]

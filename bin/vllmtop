@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# vllmtop —— 本机所有 vLLM 实例的终端看板（nvitop 的 vLLM 语义版）。
+# 推荐装成命令（只需一次）：
+#     ln -s "$PWD/bin/vllmtop" ~/.local/bin/vllmtop
+# 之后任意目录直接敲 `vllmtop`。脚本按自身位置找仓库，直接复用仓库 .venv，
+# 不依赖 cwd、不依赖激活环境；可用 VLLMTOP_REPO 临时指到另一个 checkout。
+set -euo pipefail
+here="$(readlink -f "${BASH_SOURCE[0]}")"
+repo="${VLLMTOP_REPO:-$(dirname "$(dirname "$here")")}"
+py="$repo/.venv/bin/python"
+if [[ ! -x "$py" ]]; then
+  echo "vllmtop: 找不到 $py；先在 $repo 里跑一次 uv sync" >&2
+  exit 1
+fi
+exec "$py" "$repo/vllmtop.py" "$@"
